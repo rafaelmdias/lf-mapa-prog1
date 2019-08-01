@@ -1,7 +1,23 @@
 package contas;
 
 public class ContaCorrente extends Conta{
-    private final static double limite = 3000;
+    private double limite;
+    
+    public ContaCorrente(){
+        this(0, 0, 0, 0, 0);
+    };
+    
+    public ContaCorrente(int agencia, int numero, int digito, double saldo, double limite){
+        super.setAgencia(agencia);
+        super.setNumero(numero);
+        super.setDigito(digito);
+        super.setSaldo(saldo);
+        this.setLimite(limite);
+    }
+    
+    public ContaCorrente(ContaCorrente novaConta){
+        this(novaConta.getAgencia(), novaConta.getNumero(), novaConta.getDigito(), novaConta.getSaldo(), novaConta.getLimite());
+    }
     
     @Override
     public void saque(double valor){
@@ -24,4 +40,13 @@ public class ContaCorrente extends Conta{
             System.out.println("Valor solicitado de:"+valor);
         }
     }
+
+    public double getLimite() {
+        return limite;
+    }
+
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+    
 }
