@@ -8,33 +8,30 @@ import contas.ContaPoupanca;
 public class MAPA {
 
     public static void main(String[] args) {
-        ContaCorrente cont = new ContaCorrente();
-        cont.setAgencia(001);
-        cont.setNumero(1234);
-        cont.setDigito(5);
-        cont.setSaldo(5000);
-        cont.saldo();
-        cont.saque(500);
-        cont.saldo();
-        cont.deposito(500);
-        cont.saldo();
+        ContaCorrente contaCorrente1 = new ContaCorrente(1111, 1234, 5, 5000, 3000);
+        ContaCorrente contaCorrente2 = new ContaCorrente(2222, 4321, 0, 10000, 5000);
+        ContaPoupanca contaPoupanca1 = new ContaPoupanca(3333, 5678, 9, 4000);
+        ContaPoupanca contaPoupanca2 = new ContaPoupanca(4444, 9876, 5, 8000);
         
-        ContaCorrente cont2 = new ContaCorrente();
-        cont2.setAgencia(002);
-        cont2.setNumero(4321);
-        cont2.setDigito(0);
-        cont2.setSaldo(2000);
-        cont2.saldo();
+        contaCorrente2.saque(2000);
+        contaCorrente2.saldo();
         
-        cont.transferencia(500, cont2);
-        cont.saldo();
-        cont2.saldo();
+        contaPoupanca2.saque(2000);
+        contaPoupanca2.saldo();
         
-        ContaPoupanca cont3 = new ContaPoupanca();
-        cont3.setSaldo(1000);
-        cont3.saldo();
-        cont3.rendimento(0.10);
-        cont3.saldo();
+        contaCorrente1.transferencia(2500, contaCorrente2);
+        contaCorrente1.saldo();
+        contaCorrente2.saldo();
+        
+        contaPoupanca1.transferencia(1000, contaPoupanca2);
+        contaPoupanca1.saldo();
+        contaPoupanca2.saldo();
+        
+        contaCorrente1.saque(3000);
+        contaCorrente1.transferencia(3000, contaPoupanca1);
+        
+        contaPoupanca1.saque(3050);
+        contaPoupanca1.transferencia(3050, contaPoupanca2);
     }
     
 }
