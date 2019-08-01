@@ -1,5 +1,6 @@
 package mapa;
 import contas.ContaCorrente;
+import contas.ContaPoupanca;
 /**
  *
  * @author Lucas Felipe Costa da Mata
@@ -28,6 +29,12 @@ public class MAPA {
         cont.transferencia(500, cont2);
         cont.saldo();
         cont2.saldo();
+        
+        ContaPoupanca cont3 = new ContaPoupanca();
+        cont3.setSaldo(1000);
+        cont3.saldo();
+        cont3.rendimento(0.10);
+        cont3.saldo();
     }
     
 }
